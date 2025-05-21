@@ -1,0 +1,34 @@
+@import 'tailwindcss';
+
+.cm-scroller::-webkit-scrollbar,
+.custom-scrollbar::-webkit-scrollbar {
+  height: 14px;
+  width: 14px;
+}
+
+.cm-scroller::-webkit-scrollbar-corner,
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.cm-scroller::-webkit-scrollbar-thumb,
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-black/5;
+  @apply cursor-pointer;
+  border-radius: 8px;
+  border: 4px solid transparent;
+  background-clip: content-box;
+}
+
+.cm-scroller::-webkit-scrollbar-thumb:hover,
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-black/10;
+}
+
+.custom-scrollbar {
+  overflow: overlay !important;
+}
+
+.cm-editor {
+  @apply h-full;
+}
