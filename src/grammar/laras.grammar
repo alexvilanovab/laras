@@ -1,0 +1,19 @@
+@tokens {
+  Space { @whitespace+ }
+  Name { $[A-Za-z_]+ }
+  Number { $[0-9]+ }
+  String { '"' !["]* '"' }
+  Code { '`' (![`])* '`' }
+  LBracket { "\[" }
+  RBracket { "]" }
+  Comma { "," }
+}
+
+@top File { Metadata Section* }
+
+MetadataValue { Name Space String }
+Metadata { (MetadataValue)* }
+
+SectionHeader { LBracket String Comma Number RBracket }
+SectionData { Name Space Code }
+Section { SectionHeader SectionData+ }
